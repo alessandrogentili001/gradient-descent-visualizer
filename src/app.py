@@ -9,8 +9,8 @@ st.title('Gradient Descent Visualizer')
 
 # Sidebar for user inputs
 st.sidebar.header('Parameters')
-function = st.sidebar.selectbox('Function to minimize', ['Quadratic', 'Rosenbrock'])
-learning_rate = st.sidebar.slider('Learning Rate', 0.001, 1.0, 0.1, 0.001)
+function = st.sidebar.selectbox('Function to minimize', ['Quadratic', 'Quadratic1', 'Quadratic2', 'Rosenbrock'])
+learning_rate = st.sidebar.slider('Learning Rate', 0.001, 1.0, 0.1, 0.01)
 num_iterations = st.sidebar.slider('Number of Iterations', 10, 1000, 100)
 initial_x = st.sidebar.slider('Initial X', -5.0, 5.0, 0.0, 0.1)
 initial_y = st.sidebar.slider('Initial Y', -5.0, 5.0, 0.0, 0.1)
