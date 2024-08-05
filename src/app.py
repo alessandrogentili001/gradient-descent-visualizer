@@ -1,5 +1,7 @@
 import streamlit as st
 import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 from gradient_descent import gradient_descent, quadratic, quadratic_gradient, rosenbrock, rosenbrock_gradient
 from visualizer import plot_contour_and_path
 
@@ -27,9 +29,34 @@ else:
 initial_point = [initial_x, initial_y]
 path = gradient_descent(f, grad_f, initial_point, learning_rate, num_iterations)
 
-# Visualize the results
-fig = plot_contour_and_path(f, path, title)
-st.pyplot(fig)
+# Create two columns for the plots
+col1, col2 = st.columns(2)
+
+# Visualize the results (contour plot)
+with col1:
+    st.subheader("Contour Plot with Gradient Descent Path")
+    fig_contour = plot_contour_and_path(f, path, title)
+    st.pyplot(fig_contour)
+
+# Create 3D surface plot
+with col2:
+    st.subheader("3D Surface Plot of the Function")
+    fig_3d = plt.figure(figsize=(10, 8))
+    ax = fig_3d.add_subplot(111, projection='3d')
+
+    x = np.linspace(-5, 5, 100)
+    y = np.linspace(-5, 5, 100)
+    X, Y = np.meshgrid(x, y)
+    Z = np.array([f([xi, yi]) for xi, yi in zip(np.ravel(X), np.ravel(Y))]).reshape(X.shape)
+
+    surf = ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.8)
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('f(X, Y)')
+    ax.set_title(f'3D Surface Plot of {function} Function')
+    fig_3d.colorbar(surf)
+
+    st.pyplot(fig_3d)
 
 # Display final result
 st.write(f'Final point: {path[-1]}')
