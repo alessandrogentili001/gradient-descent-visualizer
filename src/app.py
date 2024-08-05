@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-from gradient_descent import gradient_descent, quadratic, quadratic_gradient, rosenbrock, rosenbrock_gradient
+from gradient_descent import gradient_descent, quadratic, quadratic_gradient, rosenbrock, rosenbrock_gradient, quadratic1, quadratic1_gradient, quadratic2, quadratic2_gradient
 from visualizer import plot_contour_and_path
 
 st.title('Gradient Descent Visualizer')
@@ -20,6 +20,14 @@ if function == 'Quadratic':
     f = quadratic
     grad_f = quadratic_gradient
     title = 'Gradient Descent on Quadratic Function'
+if function == 'Quadratic1':
+    f = quadratic1
+    grad_f = quadratic1_gradient
+    title = 'Gradient Descent on Quadratic1 Function'
+if function == 'Quadratic2':
+    f = quadratic2
+    grad_f = quadratic2_gradient
+    title = 'Gradient Descent on Quadratic2 Function'
 else:
     f = rosenbrock
     grad_f = rosenbrock_gradient

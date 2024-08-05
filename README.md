@@ -25,7 +25,7 @@ This project provides an interactive visualization of the gradient descent optim
 
 Run the Streamlit app:
 ```
-streamlit run src/app.py
+streamlit run src/app.py [parameters]
 ```
 
 Then open your web browser and go to the URL displayed in the terminal (usually `http://localhost:8501`).

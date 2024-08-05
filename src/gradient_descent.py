@@ -40,3 +40,14 @@ def rosenbrock_gradient(x):
     return np.array([dx, dy])
 
 # Add more functions as needed
+def quadratic1(x):
+    return x[0]**2 + 10*x[1]**2
+
+def quadratic1_gradient(x):
+    return np.array([2*x[0], 20*x[1]])
+
+def quadratic2(x):
+    return (x[0] - 1)**2 + (x[1] - 1)**2
+
+def quadratic2_gradient(x):
+    return np.array([2*(x[0] - 1), 2*(x[1] - 1)])
