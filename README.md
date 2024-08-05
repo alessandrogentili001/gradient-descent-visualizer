@@ -25,7 +25,7 @@ This project provides an interactive visualization of the gradient descent optim
 
 Run the Streamlit app:
 ```
-streamlit run src/app.py [parameters]
+streamlit run src/app.py 'Quadratic' 0.01 100 0.0 0.0
 ```
 
 Then open your web browser and go to the URL displayed in the terminal (usually `http://localhost:8501`).
@@ -33,7 +33,3 @@ Then open your web browser and go to the URL displayed in the terminal (usually 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License.
